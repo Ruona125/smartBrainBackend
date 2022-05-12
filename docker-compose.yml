@@ -24,7 +24,7 @@ services:
     environment:
       - POSTGRES_USER=ruona
       - POSTGRES_PASSWORD=secret
-      - POSTGRES_DB=smart-brain-docker
+      - POSTGRES_DB=smartbrain
       - POSTGRES_HOST=postgres
     image: postgres
     ports:
