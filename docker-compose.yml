@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  smartbrainbackend:
+    container_name: backend
+    # image: node:lts-bullseye
+    build: ./
+    command: yarn start
+    working_dir: /usr/src/smartbrainbackend
+    ports:
+      - "5000:5000" 
+    volumes:
+      - ./:/usr/src/smartbrainbackend
+    
+        
