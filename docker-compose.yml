@@ -1,15 +1,35 @@
 version: "3.9"
 
 services:
+
+#backend API
   smartbrainbackend:
     container_name: backend
     # image: node:lts-bullseye
     build: ./
     command: yarn start
     working_dir: /usr/src/smartbrainbackend
+    environment:
+      - POSTGRES_USER=ruona
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=smart-brain-docker
+      - POSTGRES_HOST=postgres
+
+    links:
+      - postgres
     ports:
       - "5000:5000" 
     volumes:
       - ./:/usr/src/smartbrainbackend
-    
+
+  #postgres
+  postgres:
+    environment:
+      - POSTGRES_USER=ruona
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=smart-brain-docker
+      - POSTGRES_HOST=postgres
+    image: postgres
+    ports:
+      - "5432:5432"
         
