@@ -10,10 +10,7 @@ services:
     command: yarn start
     working_dir: /usr/src/smartbrainbackend
     environment:
-      - POSTGRES_USER=ruona
-      - POSTGRES_PASSWORD=secret
-      - POSTGRES_DB=smart-brain-docker
-      - POSTGRES_HOST=postgres
+      - POSTGRES_URI=postgres://ruona:secret@postgres:5432/smartbrain     
 
     links:
       - postgres
